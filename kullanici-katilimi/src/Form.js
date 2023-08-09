@@ -49,7 +49,7 @@ const Form = () => {
             <Label for="exampleText">Name </Label>
             <Input
               type="tex"
-              name="text"
+              name="name"
               id="exampleText"
               value={loginData.name}
               onChange={handleInputChange}
