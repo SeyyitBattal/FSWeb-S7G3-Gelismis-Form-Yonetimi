@@ -1,12 +1,21 @@
 .App {
   text-align: center;
 }
-
-.frame {
+.big-container {
+  display: flex;
+}
+.frame1 {
+  border: 10px solid black;
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  margin-right: 1rem;
+}
+.frame2 {
   border: 10px solid black;
   border-radius: 1.5rem;
   padding: 1.5rem;
 }
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
