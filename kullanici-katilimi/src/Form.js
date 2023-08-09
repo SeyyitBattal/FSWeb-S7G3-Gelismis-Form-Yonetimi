@@ -12,7 +12,8 @@ import "bootstrap/dist/css/bootstrap.css";
 import axios from "axios";
 import * as Yup from "yup";
 
-const memberList = [];
+const kullanicilar = [];
+let yeniobje = [];
 const Form = () => {
   const [loginData, setLoginData] = useState({
     name: "",
@@ -29,6 +30,7 @@ const Form = () => {
   });
 
   const [isFormValid, setFormValid] = useState(false);
+  const [kimKullanici, setKimKullanici] = useState([]);
 
   const formSchema = Yup.object().shape({
     name: Yup.string()
@@ -47,18 +49,19 @@ const Form = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Kullanıcı giriş yaptı", loginData);
-    memberList.push(loginData);
-    console.log("Member List: ", memberList);
-    // axios.post('/user', {
-    //     firstName: 'Fred',
-    //     lastName: 'Flintstone'
-    //   })
-    //   .then(function (response) {
-    //     console.log(response);
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   });
+    kullanicilar.push(loginData);
+    console.log("Kullanıcılar Listesi: ", kullanicilar);
+    axios
+      .post("https://reqres.in/api/users", {
+        kullanicilar,
+      })
+      .then(function (response) {
+        console.log("Gelen veri: ", response.data.kullanicilar);
+        setKimKullanici(response.data.kullanicilar);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   const handleInputChange = (e) => {
@@ -165,6 +168,20 @@ const Form = () => {
               Log in
             </Button>
           </form>
+        </div>
+        <div className="frame1">
+          Kullanıcılarımız:
+          {kimKullanici.map((kullanici, index) => (
+            <div>
+              <div key={index}>
+                Kullanıcı {index} İsmi: {kullanici.name}
+              </div>
+              <div key={index}>
+                Kullanıcı {index} Maili: {kullanici.email}
+              </div>
+              <br />
+            </div>
+          ))}
         </div>
       </div>
     </div>
