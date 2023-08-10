@@ -171,13 +171,14 @@ const Form = () => {
         </div>
         <div className="frame1">
           Kullanıcılarımız:
-          {kimKullanici.map((kullanici, index) => (
+          <hr />
+          {kimKullanici.map((kullanici, i) => (
             <div>
-              <div key={index}>
-                Kullanıcı {index} İsmi: {kullanici.name}
+              <div number={i}>
+                Kullanıcı-{i + 1} İsmi: {kullanici.name}
               </div>
-              <div key={index}>
-                Kullanıcı {index} Maili: {kullanici.email}
+              <div number={i}>
+                Kullanıcı-{i + 1} Maili: {kullanici.email}
               </div>
               <br />
             </div>
