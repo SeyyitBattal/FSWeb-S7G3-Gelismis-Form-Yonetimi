@@ -164,6 +164,7 @@ const Form = () => {
               type="submit"
               onClick={handleSubmit}
               disabled={!isFormValid}
+              data-cy="login-button"
             >
               Log in
             </Button>

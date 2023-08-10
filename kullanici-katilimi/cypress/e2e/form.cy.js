@@ -1,14 +1,28 @@
-describe("Login Formu için", () => {
+describe("Login Formu Testi", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:3000/");
+    cy.visit("/");
   });
   it("Does not do much!", () => {
     expect(true).to.equal(true);
   });
 
-  it("Login Formu Testi", () => {
+  it("İsim Testi", () => {
     cy.get("#exampleText").type("aaa");
-    cy.get("#exampleEmail").type("aa@aa.com");
+  });
+
+  it("Email Testi", () => {
+    cy.get("#exampleEmail").type("aaa@aaaa.com");
+  });
+
+  it("Şifre Testi", () => {
+    cy.get("#examplePassword").type("123456");
+  });
+
+  it("Koşullar Testi", () => {
     cy.get("#checkbox2").check();
+  });
+
+  it("Buton Testi", () => {
+    cy.get("[data-cy=login-button]").should("be.enabled");
   });
 });
