@@ -42,7 +42,7 @@ const Form = () => {
     password: Yup.string()
       .required("Hop hemşehrim nereye?")
       .min(6, "Güçlü parola hayat kurtarır"),
-    terms: Yup.boolean().oneOf([true], "Şartları okumasanda kabuş etmelisin"),
+    terms: Yup.boolean().oneOf([true], "Şartları okumasanda kabul etmelisin"),
     // required isn't required for checkboxes.
   });
 
